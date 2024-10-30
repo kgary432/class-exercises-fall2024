@@ -12,9 +12,33 @@ Implement the following logic and return the corresponding message (exactly as i
 */
 export function rps(hand1, hand2) {
     // finish this code:
+    if (
+        // inputs are valid and equal
+        (hand1 === "rock" || hand1 === "paper" || hand1 === "scissors") &&
+        (hand2 === "rock" || hand2 === "paper" || hand2 === "scissors") &&
+        hand1 === hand2
+    ) {
+        return "Tie!";
+    } // paper win combos
     if (hand1 === "rock" && hand2 === "paper") {
         return "Paper wins!";
+    }
+    if (hand1 === "paper" && hand2 === "rock") {
+        return "Paper wins!";
+    } // rock win combos
+    if (hand1 === "rock" && hand2 === "scissors") {
+        return "Rock wins!";
+    }
+    if (hand1 === "scissors" && hand2 === "rock") {
+        return "Rock wins!";
+    } // scissors wins combos
+    if (hand1 === "scissors" && hand2 === "paper") {
+        return "Scissors wins!";
+    }
+    if (hand1 === "paper" && hand2 === "scissors") {
+        return "Scissors wins!";
     } else {
+        // all other inputs (case sensitive)
         return "Invalid";
     }
 }
